@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		70B1B969204C35A7002DE8A8 /* DayViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1B968204C35A7002DE8A8 /* DayViewViewModel.swift */; };
 		70B1B974204D1BD9002DE8A8 /* WeekViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1B973204D1BD9002DE8A8 /* WeekViewViewModel.swift */; };
+		70B1B977204E277A002DE8A8 /* SettingsViewTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1B976204E277A002DE8A8 /* SettingsViewTimeViewModel.swift */; };
+		70B1B979204E2FFE002DE8A8 /* SettingsViewUnitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1B978204E2FFE002DE8A8 /* SettingsViewUnitsViewModel.swift */; };
+		70B1B97D204E3357002DE8A8 /* SettingsViewTemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1B97C204E3357002DE8A8 /* SettingsViewTemperatureViewModel.swift */; };
 		CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */; };
 		CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */; };
 		CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9E01DA2169400754A85 /* UserDefaults.swift */; };
@@ -38,6 +41,9 @@
 /* Begin PBXFileReference section */
 		70B1B968204C35A7002DE8A8 /* DayViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewViewModel.swift; sourceTree = "<group>"; };
 		70B1B973204D1BD9002DE8A8 /* WeekViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewViewModel.swift; sourceTree = "<group>"; };
+		70B1B976204E277A002DE8A8 /* SettingsViewTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTimeViewModel.swift; sourceTree = "<group>"; };
+		70B1B978204E2FFE002DE8A8 /* SettingsViewUnitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewUnitsViewModel.swift; sourceTree = "<group>"; };
+		70B1B97C204E3357002DE8A8 /* SettingsViewTemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTemperatureViewModel.swift; sourceTree = "<group>"; };
 		CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CC08B9E01DA2169400754A85 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -93,10 +99,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		70B1B975204E274E002DE8A8 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				70B1B976204E277A002DE8A8 /* SettingsViewTimeViewModel.swift */,
+				70B1B978204E2FFE002DE8A8 /* SettingsViewUnitsViewModel.swift */,
+				70B1B97C204E3357002DE8A8 /* SettingsViewTemperatureViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		CC08B9D91DA206C300754A85 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */,
+				70B1B975204E274E002DE8A8 /* View Models */,
 				CC08B9DC1DA20D8D00754A85 /* Table View Cells */,
 			);
 			path = SettingsViewController;
@@ -382,10 +399,13 @@
 				CC89B4501D9FEC2E006BFD6E /* WeatherData.swift in Sources */,
 				CC83E0E31F13C07800EB0CAC /* Location.swift in Sources */,
 				CC63745E1DA0F557002E68DC /* WeatherDayTableViewCell.swift in Sources */,
+				70B1B979204E2FFE002DE8A8 /* SettingsViewUnitsViewModel.swift in Sources */,
 				CC83E0DE1F13BFD300EB0CAC /* LocationTableViewCell.swift in Sources */,
+				70B1B977204E277A002DE8A8 /* SettingsViewTimeViewModel.swift in Sources */,
 				CC83E0DB1F13BFAB00EB0CAC /* LocationsViewLocationViewModel.swift in Sources */,
 				CC89B4401D9FE5BC006BFD6E /* DayViewController.swift in Sources */,
 				CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */,
+				70B1B97D204E3357002DE8A8 /* SettingsViewTemperatureViewModel.swift in Sources */,
 				CC83E0D81F13BF8000EB0CAC /* LocationRepresentable.swift in Sources */,
 				CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */,
 			);

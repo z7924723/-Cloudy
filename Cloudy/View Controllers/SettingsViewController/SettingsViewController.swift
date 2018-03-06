@@ -17,15 +17,12 @@ protocol SettingsViewControllerDelegate {
 class SettingsViewController: UIViewController {
   
   // MARK: - Properties
-  
   @IBOutlet var tableView: UITableView!
   
   // MARK: -
-  
   var delegate: SettingsViewControllerDelegate?
   
   // MARK: - View Life Cycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -35,7 +32,6 @@ class SettingsViewController: UIViewController {
   }
   
   // MARK: - View Methods
-  
   private func setupView() {
     setupTableView()
   }
@@ -52,7 +48,7 @@ class SettingsViewController: UIViewController {
   
 }
 
-extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingsViewController: UITableViewDataSource {
   
   private enum Section: Int {
     case time
@@ -70,7 +66,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   // MARK: - Table View Data Source Methods
-  
   func numberOfSections(in tableView: UITableView) -> Int {
     return Section.count
   }
@@ -81,44 +76,48 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let section = Section(rawValue: indexPath.section) else { fatalError("Unexpected Section") }
+    guard let section = Section(rawValue: indexPath.section) else {
+      fatalError("Unexpected Section")
+    }
+    
     guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else { fatalError("Unexpected Table View Cell") }
     
     switch section {
     case .time:
-      cell.mainLabel.text = (indexPath.row == 0) ? "12 Hour" : "24 Hour"
-      
-      let timeNotation = UserDefaults.timeNotation()
-      if indexPath.row == timeNotation.rawValue {
-        cell.accessoryType = .checkmark
-      } else {
-        cell.accessoryType = .none
+      guard let timeNotation = TimeNotation(rawValue: indexPath.row) else {
+        fatalError("Time Section: Unexpected Index Path")
       }
+      
+      let timeViewModel = SettingsViewTimeViewModel(timeNotation: timeNotation)
+      cell.mainLabel.text = timeViewModel.text
+      cell.accessoryType = timeViewModel.accessoryType
+
     case .units:
-      cell.mainLabel.text = (indexPath.row == 0) ? "Imperial" : "Metric"
-      
-      let unitsNotation = UserDefaults.unitsNotation()
-      if indexPath.row == unitsNotation.rawValue {
-        cell.accessoryType = .checkmark
-      } else {
-        cell.accessoryType = .none
+      guard let unitsNotation = UnitsNotation(rawValue: indexPath.row) else {
+        fatalError("Unexpected Index Path")
       }
+      
+      let unitsViewModel = SettingsViewUnitsViewModel(unitsNotation: unitsNotation)
+      cell.mainLabel.text = unitsViewModel.text
+      cell.accessoryType = unitsViewModel.accessoryType
+
     case .temperature:
-      cell.mainLabel.text = (indexPath.row == 0) ? "Fahrenheit" : "Celcius"
-      
-      let temperatureNotation = UserDefaults.temperatureNotation()
-      if indexPath.row == temperatureNotation.rawValue {
-        cell.accessoryType = .checkmark
-      } else {
-        cell.accessoryType = .none
+      guard let temperatureNotation = TemperatureNotation(rawValue: indexPath.row) else {
+        fatalError("Temperature Section: Unexpected Index Path")
       }
+      
+      let temperatureViewModel = SettingsViewTemperatureViewModel(temperatureNotation: temperatureNotation)
+      cell.mainLabel.text = temperatureViewModel.text
+      cell.accessoryType = temperatureViewModel.accessoryType
     }
     
     return cell
   }
+}
+
+extension SettingsViewController: UITableViewDelegate {
   
   // MARK: - Table View Delegate Methods
-  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     

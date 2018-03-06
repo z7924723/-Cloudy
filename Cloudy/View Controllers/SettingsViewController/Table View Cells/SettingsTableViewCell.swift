@@ -26,5 +26,11 @@ class SettingsTableViewCell: UITableViewCell {
         // Configure Cell
         selectionStyle = .none
     }
+  
+  // MARK: - Configuration
+  func configure(withViewModel viewModel: SettingsRepresentable) {
+    mainLabel.text = viewModel.text
+    accessoryType = viewModel.accessoryType
+  }
 
 }

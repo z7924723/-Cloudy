@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SettingsViewTimeViewModel {
+struct SettingsViewTimeViewModel: SettingsRepresentable {
   
   // MARK: - Properties
   let timeNotation: TimeNotation
@@ -30,6 +30,5 @@ struct SettingsViewTimeViewModel {
       return .none
     }
   }
-  
   
 }

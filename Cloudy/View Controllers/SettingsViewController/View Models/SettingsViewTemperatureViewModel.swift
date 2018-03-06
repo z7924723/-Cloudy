@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SettingsViewTemperatureViewModel {
+struct SettingsViewTemperatureViewModel: SettingsRepresentable {
   
   // MARK: - Properties
   var temperatureNotation: TemperatureNotation
@@ -22,7 +22,7 @@ struct SettingsViewTemperatureViewModel {
       return "Celcius"
     }
   }
-  
+
   var accessoryType: UITableViewCellAccessoryType {
     if UserDefaults.temperatureNotation() == temperatureNotation {
       return .checkmark
@@ -30,4 +30,5 @@ struct SettingsViewTemperatureViewModel {
       return .none
     }
   }
+  
 }

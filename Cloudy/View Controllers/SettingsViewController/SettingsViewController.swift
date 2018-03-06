@@ -82,33 +82,34 @@ extension SettingsViewController: UITableViewDataSource {
     
     guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else { fatalError("Unexpected Table View Cell") }
     
+    var viewModel: SettingsRepresentable?
+    
     switch section {
     case .time:
       guard let timeNotation = TimeNotation(rawValue: indexPath.row) else {
         fatalError("Time Section: Unexpected Index Path")
       }
       
-      let timeViewModel = SettingsViewTimeViewModel(timeNotation: timeNotation)
-      cell.mainLabel.text = timeViewModel.text
-      cell.accessoryType = timeViewModel.accessoryType
+      viewModel = SettingsViewTimeViewModel(timeNotation: timeNotation)
 
     case .units:
       guard let unitsNotation = UnitsNotation(rawValue: indexPath.row) else {
         fatalError("Unexpected Index Path")
       }
       
-      let unitsViewModel = SettingsViewUnitsViewModel(unitsNotation: unitsNotation)
-      cell.mainLabel.text = unitsViewModel.text
-      cell.accessoryType = unitsViewModel.accessoryType
+      viewModel = SettingsViewUnitsViewModel(unitsNotation: unitsNotation)
 
     case .temperature:
       guard let temperatureNotation = TemperatureNotation(rawValue: indexPath.row) else {
         fatalError("Temperature Section: Unexpected Index Path")
       }
       
-      let temperatureViewModel = SettingsViewTemperatureViewModel(temperatureNotation: temperatureNotation)
-      cell.mainLabel.text = temperatureViewModel.text
-      cell.accessoryType = temperatureViewModel.accessoryType
+      viewModel = SettingsViewTemperatureViewModel(temperatureNotation: temperatureNotation)
+    }
+    
+    if let viewModel = viewModel {
+      cell.mainLabel.text = viewModel.text
+      cell.accessoryType = viewModel.accessoryType
     }
     
     return cell

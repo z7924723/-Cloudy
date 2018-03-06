@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SettingsViewUnitsViewModel {
+struct SettingsViewUnitsViewModel: SettingsRepresentable {
   
   // MARK: - Properties
   let unitsNotation: UnitsNotation
@@ -30,4 +30,5 @@ struct SettingsViewUnitsViewModel {
       return .none
     }
   }
+  
 }

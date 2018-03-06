@@ -31,4 +31,12 @@ class WeatherDayTableViewCell: UITableViewCell {
     selectionStyle = .none
   }
   
+  // MARK: - Configuration
+  func configure(withViewModel viewModel: WeatherDayRepresentable) {
+    dayLabel.text = viewModel.day
+    dateLabel.text = viewModel.date
+    windSpeedLabel.text = viewModel.windSpeed
+    temperatureLabel.text = viewModel.temperature
+    iconImageView.image = viewModel.image
+  }
 }

@@ -177,9 +177,10 @@ extension LocationsViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
     // Fetch Location
     let location = favorites[indexPath.row]
-    
+
     // Update Favorites
     favorites.remove(at: indexPath.row)
     
@@ -187,7 +188,7 @@ extension LocationsViewController: UITableViewDataSource {
     UserDefaults.removeLocation(location)
     
     // Update Table View
-    tableView.deleteRows(at: [indexPath], with: .fade)
+    tableView.reloadData()
   }
   
 }

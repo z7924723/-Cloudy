@@ -92,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VZ-Nc-bLZ">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VZ-Nc-bLZ" userLabel="Container View for Day">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="cAe-gA-yQX"/>
@@ -101,7 +101,7 @@
                                     <segue destination="AzE-7x-bFo" kind="embed" identifier="SegueDayView" id="svf-AV-u85"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW3-pI-vqt">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW3-pI-vqt" userLabel="Container View for Week">
                                 <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <connections>
                                     <segue destination="kFf-S5-7AW" kind="embed" identifier="SegueWeekView" id="B56-fy-q3D"/>
@@ -540,13 +540,18 @@
                                     <outlet property="delegate" destination="1SC-03-Wyq" id="p5h-ju-EYh"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZQF-g8-7GL">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kC8-yI-yKo" firstAttribute="top" secondItem="3Mb-Ss-OAB" secondAttribute="top" id="Fog-z0-vv1"/>
                             <constraint firstItem="kC8-yI-yKo" firstAttribute="leading" secondItem="3Mb-Ss-OAB" secondAttribute="leading" id="KtM-He-7Xm"/>
                             <constraint firstItem="UXA-Nw-IDn" firstAttribute="top" secondItem="kC8-yI-yKo" secondAttribute="bottom" id="TX2-mX-WjC"/>
+                            <constraint firstItem="ZQF-g8-7GL" firstAttribute="centerX" secondItem="3Mb-Ss-OAB" secondAttribute="centerX" id="rJf-vB-lEi"/>
                             <constraint firstAttribute="trailing" secondItem="kC8-yI-yKo" secondAttribute="trailing" id="t4j-NW-1vE"/>
+                            <constraint firstItem="ZQF-g8-7GL" firstAttribute="centerY" secondItem="3Mb-Ss-OAB" secondAttribute="centerY" id="tYG-28-9OZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T8v-SB-W94">
@@ -557,6 +562,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="ZQF-g8-7GL" id="bjY-cb-aWF"/>
                         <outlet property="searchBar" destination="K22-9s-gOl" id="lND-vd-kdm"/>
                         <outlet property="tableView" destination="kC8-yI-yKo" id="JTj-z6-wjs"/>
                     </connections>

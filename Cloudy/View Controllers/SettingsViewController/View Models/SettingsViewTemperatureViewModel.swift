@@ -19,7 +19,7 @@ struct SettingsViewTemperatureViewModel: SettingsRepresentable {
     case .fahrenheit:
       return "Fahrenheit"
     default:
-      return "Celcius"
+      return "Celsius"
     }
   }
 

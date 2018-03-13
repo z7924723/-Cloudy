@@ -30,7 +30,7 @@ struct WeatherDayViewViewModel: WeatherDayRepresentable {
   }
   
   var temperature: String {
-    let min = format(temperature: weatherDayData.temperatureMax)
+    let min = format(temperature: weatherDayData.temperatureMin)
     let max = format(temperature: weatherDayData.temperatureMax)
     
     return "\(min) - \(max)"

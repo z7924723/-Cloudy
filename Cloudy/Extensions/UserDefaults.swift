@@ -32,46 +32,43 @@ enum TemperatureNotation: Int {
   case celsius
 }
 
-struct UserDefaultsKeys {
-  static let locations = "locations"
-  static let timeNotation = "timeNotation"
-  static let unitsNotation = "unitsNotation"
-  static let temperatureNotation = "temperatureNotation"
-}
-
 extension UserDefaults {
   
-  // MARK: - Time Notation
+  enum Keys {
+    static let locations = "locations"
+    static let timeNotation = "timeNotation"
+    static let unitsNotation = "unitsNotation"
+    static let temperatureNotation = "temperatureNotation"
+  }
   
+  // MARK: - Time Notation
   static func timeNotation() -> TimeNotation {
-    let storedValue = UserDefaults.standard.integer(forKey: UserDefaultsKeys.timeNotation)
+    let storedValue = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeNotation)
     return TimeNotation(rawValue: storedValue) ?? TimeNotation.twelveHour
   }
   
   static func setTimeNotation(timeNotation: TimeNotation) {
-    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaultsKeys.timeNotation)
+    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaults.Keys.timeNotation)
   }
   
   // MARK: - Units Notation
-  
   static func unitsNotation() -> UnitsNotation {
-    let storedValue = UserDefaults.standard.integer(forKey: UserDefaultsKeys.unitsNotation)
+    let storedValue = UserDefaults.standard.integer(forKey: UserDefaults.Keys.unitsNotation)
     return UnitsNotation(rawValue: storedValue) ?? UnitsNotation.imperial
   }
   
   static func setUnitsNotation(unitsNotation: UnitsNotation) {
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
   }
   
   // MARK: - Temperature Notation
-  
   static func temperatureNotation() -> TemperatureNotation {
-    let storedValue = UserDefaults.standard.integer(forKey: UserDefaultsKeys.temperatureNotation)
+    let storedValue = UserDefaults.standard.integer(forKey: UserDefaults.Keys.temperatureNotation)
     return TemperatureNotation(rawValue: storedValue) ?? TemperatureNotation.fahrenheit
   }
   
   static func setTemperatureNotation(temperatureNotation: TemperatureNotation) {
-    UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaultsKeys.temperatureNotation)
+    UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaults.Keys.temperatureNotation)
   }
   
 }
@@ -79,9 +76,8 @@ extension UserDefaults {
 extension UserDefaults {
   
   // MARK: - Locations
-  
   static func loadLocations() -> [Location] {
-    guard let dictionaries = UserDefaults.standard.array(forKey: UserDefaultsKeys.locations) as? [ [String: Any] ] else {
+    guard let dictionaries = UserDefaults.standard.array(forKey: UserDefaults.Keys.locations) as? [ [String: Any] ] else {
       return []
     }
     
@@ -118,13 +114,12 @@ extension UserDefaults {
   }
   
   // MARK: -
-  
   private static func saveLocations(_ locations: [Location]) {
     // Transform Locations
     let dictionaries: [ [String: Any] ] = locations.map{ $0.asDictionary }
     
     // Save Locations
-    UserDefaults.standard.set(dictionaries, forKey: UserDefaultsKeys.locations)
+    UserDefaults.standard.set(dictionaries, forKey: UserDefaults.Keys.locations)
   }
   
 }

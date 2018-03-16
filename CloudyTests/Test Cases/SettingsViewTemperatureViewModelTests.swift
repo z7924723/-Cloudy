@@ -21,7 +21,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
     super.tearDown()
     
     // Reset User Defaults
-    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.temperatureNotation)
+    UserDefaults.standard.removeObject(forKey: UserDefaults.Keys.temperatureNotation)
   }
   
   // MARK: - Tests for Text
@@ -41,7 +41,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
   func testAccessoryType_Fahrenheit_Fahrenheit() {
     let temperatureNotation: TemperatureNotation = .fahrenheit
     UserDefaults.standard.set(temperatureNotation.rawValue,
-                              forKey: UserDefaultsKeys.temperatureNotation)
+                              forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .fahrenheit)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
@@ -50,7 +50,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
   func testAccessoryType_Fahrenheit_Celsius() {
     let temperatureNotation: TemperatureNotation = .fahrenheit
     UserDefaults.standard.set(temperatureNotation.rawValue,
-                              forKey: UserDefaultsKeys.temperatureNotation)
+                              forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .celsius)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
@@ -59,7 +59,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
   func testAccessoryType_Celsius_Celsius() {
     let temperatureNotation: TemperatureNotation = .celsius
     UserDefaults.standard.set(temperatureNotation.rawValue,
-                              forKey: UserDefaultsKeys.temperatureNotation)
+                              forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .celsius)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
@@ -68,7 +68,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
   func testAccessoryType_Celsius_Fahrenheit() {
     let temperatureNotation: TemperatureNotation = .celsius
     UserDefaults.standard.set(temperatureNotation.rawValue,
-                              forKey: UserDefaultsKeys.temperatureNotation)
+                              forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .fahrenheit)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)

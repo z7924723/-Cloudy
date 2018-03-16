@@ -31,9 +31,9 @@ class WeatherDayViewViewModelTests: XCTestCase {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
     
-    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.timeNotation)
-    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.temperatureNotation)
-    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.removeObject(forKey: UserDefaults.Keys.timeNotation)
+    UserDefaults.standard.removeObject(forKey: UserDefaults.Keys.temperatureNotation)
+    UserDefaults.standard.removeObject(forKey: UserDefaults.Keys.unitsNotation)
   }
   
   // MARK: - Tests for Day
@@ -49,14 +49,14 @@ class WeatherDayViewViewModelTests: XCTestCase {
   // MARK: - Tests for Temperature
   func testTemperature_Fahrenheit() {
     let temperatureNotation: TemperatureNotation = .fahrenheit
-    UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaultsKeys.temperatureNotation)
+    UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaults.Keys.temperatureNotation)
     
     XCTAssertEqual(viewModel.temperature, "48 °F - 56 °F")
   }
   
   func testTemperature_Celsius() {
     let temperatureNotation: TemperatureNotation = .celsius
-    UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaultsKeys.temperatureNotation)
+    UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaults.Keys.temperatureNotation)
     
     XCTAssertEqual(viewModel.temperature, "9 °C - 13 °C")
   }
@@ -64,14 +64,14 @@ class WeatherDayViewViewModelTests: XCTestCase {
   // MARK: - Tests for Wind Speed
   func testWindSpeed_Imperial() {
     let unitsNotation: UnitsNotation = .imperial
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     XCTAssertEqual(viewModel.windSpeed, "8 MPH")
   }
   
   func testWindSpeed_Metric() {
     let unitsNotation: UnitsNotation = .metric
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     XCTAssertEqual(viewModel.windSpeed, "14 KPH")
   }

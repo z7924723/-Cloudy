@@ -21,7 +21,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
     super.tearDown()
     
     // Reset User Defaults
-    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.removeObject(forKey: UserDefaults.Keys.unitsNotation)
   }
 
   // MARK: - Tests for Text
@@ -40,7 +40,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
   // MARK: - Tests for Accessory Type
   func testAccessoryType_Imperial_Imperial() {
     let unitsNotation: UnitsNotation = .imperial
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
@@ -48,7 +48,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
   
   func testAccessoryType_Imperial_Metric() {
     let unitsNotation: UnitsNotation = .imperial
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
@@ -56,7 +56,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
 
   func testAccessoryType_Metric_Metric() {
     let unitsNotation: UnitsNotation = .metric
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
@@ -64,7 +64,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
   
   func testAccessoryType_Metric_Imperial() {
     let unitsNotation: UnitsNotation = .metric
-    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+    UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)

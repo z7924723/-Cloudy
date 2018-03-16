@@ -21,7 +21,7 @@ class SettingsViewTimeViewModelTests: XCTestCase {
     super.tearDown()
     
     // Reset User Defaults
-    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.timeNotation)
+    UserDefaults.standard.removeObject(forKey: UserDefaults.Keys.timeNotation)
   }
   
   // MARK: - Tests for Text
@@ -40,7 +40,7 @@ class SettingsViewTimeViewModelTests: XCTestCase {
   // MARK: - Tests for Accessory Type
   func testAccessoryType_TwelveHour_TwelveHour() {
     let timeNotation: TimeNotation = .twelveHour
-    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaultsKeys.timeNotation)
+    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaults.Keys.timeNotation)
     
     let viewModel = SettingsViewTimeViewModel(timeNotation: .twelveHour)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
@@ -48,7 +48,7 @@ class SettingsViewTimeViewModelTests: XCTestCase {
   
   func testAccessoryType_TwelveHour_TwentyFourHour() {
     let timeNotation: TimeNotation = .twelveHour
-    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaultsKeys.timeNotation)
+    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaults.Keys.timeNotation)
     
     let viewModel = SettingsViewTimeViewModel(timeNotation: .twentyFourHour)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
@@ -56,7 +56,7 @@ class SettingsViewTimeViewModelTests: XCTestCase {
   
   func testAccessoryType_TwentyFourHour_TwentyFourHour() {
     let timeNotation: TimeNotation = .twentyFourHour
-    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaultsKeys.timeNotation)
+    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaults.Keys.timeNotation)
     
     let viewModel = SettingsViewTimeViewModel(timeNotation: .twentyFourHour)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
@@ -64,7 +64,7 @@ class SettingsViewTimeViewModelTests: XCTestCase {
   
   func testAccessoryType_TwentyFourHour_TwelveHour() {
     let timeNotation: TimeNotation = .twentyFourHour
-    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaultsKeys.timeNotation)
+    UserDefaults.standard.set(timeNotation.rawValue, forKey: UserDefaults.Keys.timeNotation)
     
     let viewModel = SettingsViewTimeViewModel(timeNotation: .twelveHour)
     XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)

@@ -79,12 +79,12 @@ class WeatherDayViewViewModelTests: XCTestCase {
   // MARK: - Tests for Image
   func testImage() {
     let viewModelImage = viewModel.image
-    let imageDataViewModel = UIImagePNGRepresentation(viewModelImage!)!
+    let imageDataViewModel = UIImagePNGRepresentation(UIImage(named: viewModelImage)!)!
     let imageDataReference = UIImagePNGRepresentation(UIImage(named: "rain")!)!
     
     XCTAssertNotNil(viewModelImage)
-    XCTAssertEqual(viewModelImage!.size.width, 173.0)
-    XCTAssertEqual(viewModelImage!.size.height, 174.0)
+    XCTAssertEqual(UIImage(named: viewModelImage)?.size.width, 173.0)
+    XCTAssertEqual(UIImage(named: viewModelImage)?.size.height, 174.0)
     XCTAssertEqual(imageDataViewModel, imageDataReference)
   }
 }

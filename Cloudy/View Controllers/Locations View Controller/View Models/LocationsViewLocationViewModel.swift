@@ -6,7 +6,6 @@
 //  Copyright © 2017 PinguMac. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
 
 struct LocationsViewLocationViewModel {

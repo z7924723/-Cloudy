@@ -37,6 +37,6 @@ class WeatherDayTableViewCell: UITableViewCell {
     dateLabel.text = viewModel.date
     windSpeedLabel.text = viewModel.windSpeed
     temperatureLabel.text = viewModel.temperature
-    iconImageView.image = viewModel.image
+    iconImageView.image = UIImage(named: viewModel.image)
   }
 }

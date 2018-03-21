@@ -6,7 +6,7 @@
 //  Copyright © 2018年 PinguMac. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct WeatherDayViewViewModel: WeatherDayRepresentable {
 
@@ -56,8 +56,8 @@ struct WeatherDayViewViewModel: WeatherDayRepresentable {
     }
   }
   
-  var image: UIImage? {
-    return UIImage.imageForIcon(withName: weatherDayData.icon)
+  var image: String {
+    return String(weatherDayData.icon)
   }
 
 }

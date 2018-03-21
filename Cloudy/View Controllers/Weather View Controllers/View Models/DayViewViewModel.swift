@@ -6,7 +6,7 @@
 //  Copyright © 2018年 PinguMac. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct DayViewViewModel {
   // MARK: - Properties

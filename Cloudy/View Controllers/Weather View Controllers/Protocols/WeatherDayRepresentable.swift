@@ -6,12 +6,12 @@
 //  Copyright © 2018年 PinguMac. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol WeatherDayRepresentable {
   var day: String { get }
   var date: String { get }
-  var image: UIImage? { get }
+  var image: String { get }
   var windSpeed: String { get }
   var temperature: String { get }
 }

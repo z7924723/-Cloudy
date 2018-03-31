@@ -188,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				7068F681204E877E006D9638 /* DayViewViewModel.swift */,
-				7068F67F204E877E006D9638 /* WeatherDayViewViewModel.swift */,
 				7068F680204E877E006D9638 /* WeekViewViewModel.swift */,
+				7068F67F204E877E006D9638 /* WeatherDayViewViewModel.swift */,
 			);
 			name = "View Model\U0003s";
 			path = "View Models";

@@ -81,7 +81,7 @@ class AddLocationViewViewModel {
       if let error = error {
         print("Unable to Forward Geocode Address (\(error))")
       } else if let _placemarks = placemarks {
-        locations = _placemarks.flatMap({ (placemark) -> Location? in
+        locations = _placemarks.compactMap({ (placemark) -> Location? in
           guard let name = placemark.name else { return nil }
           guard let location = placemark.location else { return nil }
           return Location(name: name,

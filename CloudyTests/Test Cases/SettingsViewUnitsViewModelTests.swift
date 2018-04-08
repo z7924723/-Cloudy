@@ -43,7 +43,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
     UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.checkmark.rawValue))
   }
   
   func testAccessoryType_Imperial_Metric() {
@@ -51,7 +51,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
     UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.none.rawValue))
   }
 
   func testAccessoryType_Metric_Metric() {
@@ -59,7 +59,7 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
     UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.checkmark.rawValue))
   }
   
   func testAccessoryType_Metric_Imperial() {
@@ -67,6 +67,6 @@ class SettingsViewUnitsViewModelTests: XCTestCase {
     UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaults.Keys.unitsNotation)
     
     let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.none.rawValue))
   }
 }

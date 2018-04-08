@@ -44,7 +44,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
                               forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .fahrenheit)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.checkmark.rawValue))
   }
   
   func testAccessoryType_Fahrenheit_Celsius() {
@@ -53,7 +53,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
                               forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .celsius)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.none.rawValue))
   }
   
   func testAccessoryType_Celsius_Celsius() {
@@ -62,7 +62,7 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
                               forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .celsius)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.checkmark)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.checkmark.rawValue))
   }
   
   func testAccessoryType_Celsius_Fahrenheit() {
@@ -71,6 +71,6 @@ class SettingsViewTemperatureViewModelTests: XCTestCase {
                               forKey: UserDefaults.Keys.temperatureNotation)
     
     let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: .fahrenheit)
-    XCTAssertEqual(viewModel.accessoryType, UITableViewCellAccessoryType.none)
+    XCTAssertEqual(viewModel.accessoryType, Accessory(rawValue: UITableViewCellAccessoryType.none.rawValue))
   }
 }

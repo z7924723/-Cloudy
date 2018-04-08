@@ -30,7 +30,7 @@ class SettingsTableViewCell: UITableViewCell {
   // MARK: - Configuration
   func configure(withViewModel viewModel: SettingsRepresentable) {
     mainLabel.text = viewModel.text
-    accessoryType = viewModel.accessoryType
+    accessoryType = UITableViewCellAccessoryType(rawValue: viewModel.accessoryType.rawValue)!
   }
 
 }

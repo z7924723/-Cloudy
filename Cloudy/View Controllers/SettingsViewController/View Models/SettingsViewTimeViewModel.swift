@@ -23,7 +23,7 @@ struct SettingsViewTimeViewModel: SettingsRepresentable {
     }
   }
   
-  var accessoryType: UITableViewCellAccessoryType {
+  var accessoryType: Accessory {
     if UserDefaults.timeNotation() == timeNotation {
       return .checkmark
     } else {

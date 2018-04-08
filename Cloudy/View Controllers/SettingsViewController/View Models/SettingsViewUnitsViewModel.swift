@@ -6,7 +6,7 @@
 //  Copyright © 2018年 PinguMac. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct SettingsViewUnitsViewModel: SettingsRepresentable {
   
@@ -23,7 +23,7 @@ struct SettingsViewUnitsViewModel: SettingsRepresentable {
     }
   }
   
-  var accessoryType: UITableViewCellAccessoryType {
+  var accessoryType: Accessory {
     if UserDefaults.unitsNotation() == unitsNotation {
       return .checkmark
     } else {

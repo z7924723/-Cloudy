@@ -46,9 +46,7 @@
 		CC89B4421D9FE5C6006BFD6E /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89B4411D9FE5C6006BFD6E /* WeekViewController.swift */; };
 		CC89B4451D9FE897006BFD6E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89B4441D9FE897006BFD6E /* DataManager.swift */; };
 		CC89B4481D9FE8D3006BFD6E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89B4471D9FE8D3006BFD6E /* Configuration.swift */; };
-		CC89B44C1D9FEB73006BFD6E /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89B44B1D9FEB73006BFD6E /* JSONDecodable.swift */; };
 		CC89B4501D9FEC2E006BFD6E /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89B44F1D9FEC2E006BFD6E /* WeatherData.swift */; };
-		CC89B4521D9FECBE006BFD6E /* WeatherDayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89B4511D9FECBE006BFD6E /* WeatherDayData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,9 +103,7 @@
 		CC89B4411D9FE5C6006BFD6E /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		CC89B4441D9FE897006BFD6E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CC89B4471D9FE8D3006BFD6E /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		CC89B44B1D9FEB73006BFD6E /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		CC89B44F1D9FEC2E006BFD6E /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		CC89B4511D9FECBE006BFD6E /* WeatherDayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,7 +336,6 @@
 				CC89B4351D9FE3D0006BFD6E /* Storyboards */,
 				CC08B9DF1DA2166B00754A85 /* Extensions */,
 				CC89B4431D9FE877006BFD6E /* Managers */,
-				CC89B4491D9FEB36006BFD6E /* Protocols */,
 				CC89B44E1D9FEC04006BFD6E /* Models */,
 			);
 			path = Cloudy;
@@ -411,20 +406,11 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		CC89B4491D9FEB36006BFD6E /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				CC89B44B1D9FEB73006BFD6E /* JSONDecodable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		CC89B44E1D9FEC04006BFD6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CC83E0E21F13C07800EB0CAC /* Location.swift */,
 				CC89B44F1D9FEC2E006BFD6E /* WeatherData.swift */,
-				CC89B4511D9FECBE006BFD6E /* WeatherDayData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -560,12 +546,10 @@
 				CC83E0D51F13BF3B00EB0CAC /* LocationsViewController.swift in Sources */,
 				7068F683204E877E006D9638 /* WeekViewViewModel.swift in Sources */,
 				CC89B4391D9FE3D0006BFD6E /* RootViewController.swift in Sources */,
-				CC89B44C1D9FEB73006BFD6E /* JSONDecodable.swift in Sources */,
 				CC89B4451D9FE897006BFD6E /* DataManager.swift in Sources */,
 				CC83E0E11F13C01300EB0CAC /* AddLocationViewController.swift in Sources */,
 				CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */,
 				CC89B4381D9FE3D0006BFD6E /* AppDelegate.swift in Sources */,
-				CC89B4521D9FECBE006BFD6E /* WeatherDayData.swift in Sources */,
 				CC89B4421D9FE5C6006BFD6E /* WeekViewController.swift in Sources */,
 				7068F687204F8747006D9638 /* AddLocationViewViewModel.swift in Sources */,
 				CC89B4501D9FEC2E006BFD6E /* WeatherData.swift in Sources */,
@@ -693,7 +677,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -745,7 +729,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

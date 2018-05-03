@@ -54,8 +54,8 @@ final class DataManager {
       if response.statusCode == 200 {
         do {
           // Decode JSON
-          let weatherData: WeatherData = try JSONDecoder.decode(data: data)
-          
+          let weatherData: WeatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+
           // Invoke Completion Handler
           completion(weatherData, nil)
           

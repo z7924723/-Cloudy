@@ -18,20 +18,20 @@ struct DayViewViewModel {
   // MARK: - Day View Label
   var date: String {
     dateFormatter.dateFormat = "EEE, MMMM d"
-    return dateFormatter.string(from: weatherData.time)
+    return dateFormatter.string(from: weatherData.currently.time)
   }
   
   var time: String {
     dateFormatter.dateFormat = UserDefaults.timeNotation().timeFormat
-    return dateFormatter.string(from: weatherData.time)
+    return dateFormatter.string(from: weatherData.currently.time)
   }
   
   var summary: String {
-    return weatherData.summary
+    return weatherData.currently.summary
   }
   
   var temperature: String {
-    let temperature = weatherData.temperature
+    let temperature = weatherData.currently.temperature
     
     switch UserDefaults.temperatureNotation() {
     case .fahrenheit:
@@ -42,7 +42,7 @@ struct DayViewViewModel {
   }
   
   var windSpeed: String {
-    let windSpeed = weatherData.windSpeed
+    let windSpeed = weatherData.currently.windSpeed
     
     switch UserDefaults.unitsNotation() {
     case .imperial:
@@ -53,6 +53,6 @@ struct DayViewViewModel {
   }
   
   var image: String {
-    return String(weatherData.icon)
+    return String(weatherData.currently.icon)
   }
 }

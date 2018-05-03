@@ -11,18 +11,18 @@ import Foundation
 struct WeekViewViewModel {
   
   // MARK: - Properties
-  let weatherData: [WeatherDayData]
+  let weatherData: Daily
 
   var numberOfSection: Int {
     return 1
   }
   
   var numberOfDays: Int {
-    return weatherData.count
+    return weatherData.data.count
   }
   
   func viewModel(for index: Int) -> WeatherDayViewViewModel {
-    return WeatherDayViewViewModel(weatherDayData: weatherData[index])
+    return WeatherDayViewViewModel(dayData: weatherData.data[index])
   }
   
 }

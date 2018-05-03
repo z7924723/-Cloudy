@@ -11,7 +11,7 @@ import Foundation
 struct WeatherDayViewViewModel: WeatherDayRepresentable {
 
   // MARK: - Properties
-  let weatherDayData: WeatherDayData
+  let dayData: DayData
   
   // MARK: -
   private let dayFormatter = DateFormatter()
@@ -20,18 +20,18 @@ struct WeatherDayViewViewModel: WeatherDayRepresentable {
   var day: String {
     dayFormatter.dateFormat = "EEEE"
     
-    return dayFormatter.string(from: weatherDayData.time)
+    return dayFormatter.string(from: dayData.time)
   }
   
   var date: String {
     dateFormatter.dateFormat = "MMMM d"
     
-    return dateFormatter.string(from: weatherDayData.time)
+    return dateFormatter.string(from: dayData.time)
   }
   
   var temperature: String {
-    let min = format(temperature: weatherDayData.temperatureMin)
-    let max = format(temperature: weatherDayData.temperatureMax)
+    let min = format(temperature: dayData.temperatureMin)
+    let max = format(temperature: dayData.temperatureMax)
     
     return "\(min) - \(max)"
   }
@@ -46,7 +46,7 @@ struct WeatherDayViewViewModel: WeatherDayRepresentable {
   }
   
   var windSpeed: String {
-    let windSpeed = weatherDayData.windSpeed
+    let windSpeed = dayData.windSpeed
     
     switch UserDefaults.unitsNotation() {
     case .imperial:
@@ -57,7 +57,7 @@ struct WeatherDayViewViewModel: WeatherDayRepresentable {
   }
   
   var image: String {
-    return String(weatherDayData.icon)
+    return String(dayData.icon)
   }
 
 }

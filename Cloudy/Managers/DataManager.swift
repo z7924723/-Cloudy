@@ -53,8 +53,11 @@ final class DataManager {
     } else if let data = data, let response = response as? HTTPURLResponse {
       if response.statusCode == 200 {
         do {
+          let decoder = JSONDecoder()
+          decoder.dateDecodingStrategy = .secondsSince1970
+          
           // Decode JSON
-          let weatherData: WeatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+          let weatherData: WeatherData = try decoder.decode(WeatherData.self, from: data)
 
           // Invoke Completion Handler
           completion(weatherData, nil)
